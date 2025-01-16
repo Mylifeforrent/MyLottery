@@ -1,13 +1,26 @@
 server:
-  port: 80
+  port: 8080
 
 spring:
   datasource:
-    username: root
-    password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/bugstack?useUnicode=true
+    username: user
+    password: password
+    url: jdbc:mysql://172.16.126.130:3306/db?useUnicode=true
     driver-class-name: com.mysql.jdbc.Driver
 
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   config-location:  classpath:/mybatis/config/mybatis-config.xml
+
+# Dubbo 广播方式配置
+dubbo:
+  application:
+    name: Lottery
+    version: 1.0.0
+  registry:
+    address: N/A #multicast://224.5.6.7:1234
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages: cn.itedus.lottery.rpc
