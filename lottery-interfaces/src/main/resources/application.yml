@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    username: user
-    password: password
-    url: jdbc:mysql://172.16.126.130:3306/db?useUnicode=true
-    driver-class-name: com.mysql.jdbc.Driver
+    username: lottery
+    password: lottery
+    url: jdbc:mysql://localhost:3306/lottery?useUnicode=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
