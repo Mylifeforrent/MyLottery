@@ -7,6 +7,9 @@
 /lottery-rpc/lottery-rpc.iml
 # Exclude all .class files
 *.class
+*.jar
+*.war
+*.ear
 
 # Exclude libraries and dependencies
 /target/
