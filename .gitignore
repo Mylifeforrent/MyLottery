@@ -5,3 +5,16 @@
 /lottery-infrastructure/lottery-infrastructure.iml
 /lottery-interfaces/lottery-interfaces.iml
 /lottery-rpc/lottery-rpc.iml
+# Exclude all .class files
+*.class
+
+# Exclude libraries and dependencies
+/target/
+/out/
+/lib/
+/*.jar
+/*.war
+/*.ear
+
+# Keep general development files
+!.gitignore

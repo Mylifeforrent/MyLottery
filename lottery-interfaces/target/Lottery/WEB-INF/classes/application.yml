@@ -3,10 +3,16 @@ server:
 
 spring:
   datasource:
-    username: root
-    password: password
-    url: jdbc:mysql://172.16.126.130:3306/lottery?useUnicode=true
-    driver-class-name: com.mysql.jdbc.Driver
+    # for root pwd is rootroot
+    username: lottery
+    password: lottery
+    url: jdbc:mysql://localhost:3306/lottery?useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration # SQL 脚本存放路径
+    baseline-on-migrate: true # 如果数据库中已有表，设置基线
+    clean-disabled: false # 禁止清空数据库
 
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
@@ -24,3 +30,8 @@ dubbo:
     port: 20880
   scan:
     base-packages: cn.itedus.lottery.rpc
+logging:
+  level:
+    root: INFO
+    com.zaxxer.hikari: DEBUG
+    org.springframework.jdbc.core: DEBUG
