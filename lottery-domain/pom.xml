@@ -10,6 +10,173 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>lottery-domain</artifactId>
+    <packaging>jar</packaging>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.itedus.lottery</groupId>
+            <artifactId>lottery-infrastructure</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+           <!-- 在 Maven 中，`<scope>compile</scope>` 的作用是指定依赖的作用域。以下是使用 `compile` 的原因和含义：
+
+            1. **默认作用域**：`compile` 是 Maven 的默认作用域。如果不显式指定 `<scope>`，Maven 会将依赖的作用域视为 `compile`。
+
+            2. **编译时可用**：`compile` 作用域的依赖在项目的编译阶段是可用的。这意味着这些依赖会被添加到编译时的类路径中。
+
+            3. **运行时可用**：`compile` 作用域的依赖不仅在编译时可用，在运行时也会被包含在类路径中。
+
+            4. **适用于核心依赖**：`compile` 通常用于项目中核心的、直接依赖的库。例如，这里的 `lottery-infrastructure` 是项目的一个模块，可能包含了项目运行所需的核心功能，因此需要在编译和运行时都可用。
+
+            如果你不需要在运行时使用某个依赖，可以考虑其他作用域（如 `provided` 或 `test`）。
+            在 Maven 中，`provided` 和 `test` 是两种常见的依赖作用域，分别适用于不同的场景：
+
+            ### 1. **`provided` 作用域**
+            - **使用场景**:
+            - 当依赖在编译时需要，但运行时由运行环境（如应用服务器或容器）提供时使用。
+            - 典型场景是使用 Servlet API 或 Java EE 相关库时，这些库在运行时由容器（如 Tomcat、Jetty）提供。
+            - **特点**:
+            - 编译时可用。
+            - 不会被打包到最终的构建产物中（如 JAR 或 WAR 文件）。
+            - **示例**:
+            ```xml
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.1</version>
+                <scope>provided</scope>
+            </dependency>
+            ```
+            **解释**: `javax.servlet-api` 是 Servlet 容器（如 Tomcat）在运行时提供的库，因此使用 `provided` 作用域。
+
+            -&#45;&#45;
+
+            ### 2. **`test` 作用域**
+            - **使用场景**:
+            - 当依赖仅在测试阶段需要时使用。
+            - 典型场景是使用测试框架（如 JUnit、Mockito）或测试工具（如 Spring Test）。
+            - **特点**:
+            - 仅在测试编译和测试运行时可用。
+            - 不会影响主代码的编译，也不会被打包到最终的构建产物中。
+            - **示例**:
+            ```xml
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>5.8.2</version>
+                <scope>test</scope>
+            </dependency>
+            ```
+            **解释**: `junit-jupiter` 是 JUnit 5 的核心库，仅在测试阶段使用，因此使用 `test` 作用域。
+
+            -&#45;&#45;
+
+            ### 总结
+            - **`provided`**: 用于运行时由外部环境提供的依赖（如 Servlet 容器）。
+            - **`test`**: 用于仅在测试阶段需要的依赖（如测试框架）。-->
+    </dependencies>
+    <build>
+        <finalName>lottery-domain</finalName>
+        <plugins>
+            <!-- 编译plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <compilerVersion>1.8</compilerVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+        <!--`<configuration>` 是 Maven 插件配置的核心部分，用于为插件指定自定义的参数和行为。它允许开发者根据项目需求调整插件的功能。
+
+        ### 作用
+        - **自定义插件行为**：通过 `<configuration>`，可以为插件提供特定的参数，改变其默认行为。
+        - **灵活性**：不同的插件支持不同的配置选项，开发者可以根据需要启用或禁用某些功能。
+        - **简化构建流程**：通过配置，可以减少手动操作，自动化构建任务。
+
+        ### 用法
+        `<configuration>` 通常位于 `<plugin>` 元素中，用于定义插件的具体行为。例如：
+
+        ```xml
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+                <source>1.8</source> &lt;!&ndash; 指定 Java 源代码版本 &ndash;&gt;
+                <target>1.8</target> &lt;!&ndash; 指定编译后的字节码版本 &ndash;&gt;
+                <compilerArgs>
+                    <arg>-Xlint:unchecked</arg> &lt;!&ndash; 启用编译警告 &ndash;&gt;
+                </compilerArgs>
+            </configuration>
+        </plugin>
+        ```
+
+        ### 示例
+        #### 1. **maven-compiler-plugin**
+        用于指定 Java 编译器的版本和参数：
+        ```xml
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>11</source>
+                <target>11</target>
+            </configuration>
+        </plugin>
+        ```
+        **作用**: 将代码编译为 Java 11 字节码。
+
+        #### 2. **maven-resources-plugin**
+        用于过滤资源文件：
+        ```xml
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <configuration>
+                <delimiters>
+                    <delimiter>@</delimiter>
+                </delimiters>
+                <useDefaultDelimiters>false</useDefaultDelimiters>
+            </configuration>
+        </plugin>
+        ```
+        **作用**: 使用 `@` 作为占位符分隔符，禁用默认分隔符。
+
+        #### 3. **maven-shade-plugin**
+        用于打包和重定位依赖：
+        ```xml
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <configuration>
+                <createDependencyReducedPom>true</createDependencyReducedPom>
+                <filters>
+                    <filter>
+                        <artifact>*:*</artifact>
+                        <excludes>
+                            <exclude>META-INF/*.SF</exclude>
+                        </excludes>
+                    </filter>
+                </filters>
+            </configuration>
+        </plugin>
+        ```
+        **作用**: 打包时排除签名文件，避免冲突。
+
+        ### 总结
+        `<configuration>` 是 Maven 插件的核心配置部分，具体参数取决于插件的功能。通过合理配置，可以优化构建流程并满足项目需求。-->
+    </build>
 </project>

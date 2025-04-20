@@ -1,0 +1,4 @@
+cn/itedus/lottery/domain/strategy/service/algorithm/impl/SingleRateRandomDrawAlgorithm.class
+cn/itedus/lottery/domain/strategy/model/vo/AwardRateInfo.class
+cn/itedus/lottery/domain/strategy/service/algorithm/IDrawAlgorithm.class
+cn/itedus/lottery/domain/strategy/service/algorithm/BaseAlgorithm.class

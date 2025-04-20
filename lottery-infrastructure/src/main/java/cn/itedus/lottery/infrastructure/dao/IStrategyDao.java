@@ -1,6 +1,6 @@
 package cn.itedus.lottery.infrastructure.dao;
 
-import cn.itedus.lottery.infrastructure.po.Activity;
+import cn.itedus.lottery.infrastructure.po.Strategy;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -9,10 +9,8 @@ import org.apache.ibatis.annotations.Mapper;
  * Create by 小傅哥(fustack)
  */
 @Mapper
-public interface IActivityDao {
+public interface IStrategyDao {
 
-   void insert(Activity req);
-
-   Activity queryActivityById(Long activityId);
+    Strategy queryStrategy(Long strategyId);
 
 }
