@@ -1,4 +1,8 @@
 cn/itedus/lottery/domain/strategy/service/algorithm/impl/SingleRateRandomDrawAlgorithm.class
 cn/itedus/lottery/domain/strategy/model/vo/AwardRateInfo.class
-cn/itedus/lottery/domain/strategy/service/algorithm/IDrawAlgorithm.class
 cn/itedus/lottery/domain/strategy/service/algorithm/BaseAlgorithm.class
+cn/itedus/lottery/domain/strategy/service/algorithm/impl/EntiretyRateRandomDrawAlgorithm.class
+cn/itedus/lottery/domain/strategy/service/algorithm/IDrawAlgorithm.class
+cn/itedus/lottery/domain/strategy/service/draw/DrawStrategySupport.class
+cn/itedus/lottery/domain/strategy/service/draw/AbstractDrawBase.class
+cn/itedus/lottery/domain/strategy/model/vo/DrawAwardInfo.class

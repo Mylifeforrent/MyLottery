@@ -3,6 +3,7 @@ package cn.itedus.lottery.domain.strategy.service.algorithm;
 import cn.itedus.lottery.domain.strategy.model.vo.AwardRateInfo;
 
 import java.math.BigDecimal;
+import java.security.SecureRandom;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -159,4 +160,7 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm {
         return hashCode & (RATE_TUPLE_LENGTH - 1);
     }
 
+    protected int generateSecureRandomIntCode(int bound) {
+        return new SecureRandom().nextInt(bound) + 1;
+    }
 }
