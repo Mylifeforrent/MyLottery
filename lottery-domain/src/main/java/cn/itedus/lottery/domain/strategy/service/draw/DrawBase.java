@@ -12,6 +12,9 @@ import java.util.List;
  * 公众号：bugstack虫洞栈
  * Create by 小傅哥(fustack)
  */
+
+//这里的drawbase drawconfig 对应的class其实没有对class添加spring注解，就是因为它是用来给其他类继承用的。所以它本身不是一个bean的概念。因此不需要添加spring注解，
+    //但是它的成员属性需要添加注解，这点要注意。因为其他类继承了，其他类是spring bean啊。淡然需要属性字段添加注解咯
 public class DrawBase extends DrawConfig {
 
     public void checkAndInitRateData(Long strategyId, Integer strategyMode, List<StrategyDetail> strategyDetailList) {
