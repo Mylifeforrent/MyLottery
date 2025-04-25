@@ -38,7 +38,7 @@ public class OpenState extends AbstractState {
     @Override
     public Result close(Long activityId, Enum<Constants.ActivityState> currentState) {
         boolean isSuccess = activityRepository.alterStatus(activityId, currentState, Constants.ActivityState.CLOSE);
-        return isSuccess ? Result.buildResult(Constants.ResponseCode.SUCCESS, "活动关闭完成") : Result.buildErrorResult("活动状态变更失败");
+        return isSuccess ? Result.buildResult(Constants.ResponseCode.SUCCESS, "活动开启完成") : Result.buildErrorResult("活动状态变更失败");
     }
 
     @Override
