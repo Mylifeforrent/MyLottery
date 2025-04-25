@@ -16,32 +16,52 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public abstract class AbstractDrawBase extends DrawStrategySupport implements IDrawExec{
+/**
+ * @description: 定义抽象抽奖过程，模板模式
+ * @author：小傅哥，微信：fustack
+ * @date: 2021/8/28
+ * @Copyright：公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
+ */
+public abstract class AbstractDrawBase extends DrawStrategySupport implements IDrawExec {
 
     private Logger logger = LoggerFactory.getLogger(AbstractDrawBase.class);
 
-
-    /**
-     * 抽奖执行
-     * @param req
-     * @return
-     */
     @Override
     public DrawResult doDrawExec(DrawReq req) {
-        //query strategy
+        // 1. 获取抽奖策略
         StrategyRich strategyRich = super.queryStrategyRich(req.getStrategyId());
         Strategy strategy = strategyRich.getStrategy();
-        //check if strategy ha already been initialized in mem
+
+        // 2. 校验抽奖策略是否已经初始化到内存
         this.checkAndInitRateData(req.getStrategyId(), strategy.getStrategyMode(), strategyRich.getStrategyDetailList());
-        //check if strategy is valid including checking stock is empty,black list,temporary adjustment etc.
+
+        // 3. 获取不在抽奖范围内的列表，包括：奖品库存为空、风控策略、临时调整等
         List<String> excludeAwardIds = this.queryExcludeAwardIds(req.getStrategyId());
-        //exec draw algorithm
+
+        // 4. 执行抽奖算法
         String awardId = this.drawAlgorithm(req.getStrategyId(), drawAlgorithmGroup.get(strategy.getStrategyMode()), excludeAwardIds);
 
-        //warp draw result
+        // 5. 包装中奖结果
         return buildDrawResult(req.getuId(), req.getStrategyId(), awardId);
     }
+
+    /**
+     * 获取不在抽奖范围内的列表，包括：奖品库存为空、风控策略、临时调整等，这类数据是含有业务逻辑的，所以需要由具体的实现方决定
+     *
+     * @param strategyId 策略ID
+     * @return 排除的奖品ID集合
+     */
+    protected abstract List<String> queryExcludeAwardIds(Long strategyId);
+
+    /**
+     * 执行抽奖算法
+     *
+     * @param strategyId      策略ID
+     * @param drawAlgorithm   抽奖算法模型
+     * @param excludeAwardIds 排除的抽奖ID集合
+     * @return 中奖奖品ID
+     */
+    protected abstract String drawAlgorithm(Long strategyId, IDrawAlgorithm drawAlgorithm, List<String> excludeAwardIds);
 
     /**
      * 校验抽奖策略是否已经初始化到内存
@@ -67,7 +87,6 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         // 解析并初始化中奖概率数据到散列表
         List<AwardRateInfo> awardRateInfoList = new ArrayList<>(strategyDetailList.size());
         for (StrategyDetail strategyDetail : strategyDetailList) {
-            //这一步骤有点多余了，直接采用strategydetail就可以了吧？ 里面已经包含了中奖id和概率信息
             awardRateInfoList.add(new AwardRateInfo(strategyDetail.getAwardId(), strategyDetail.getAwardRate()));
         }
 
@@ -75,11 +94,14 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
 
     }
 
-    //it depends on the business logic to implement
-    protected abstract List<String> queryExcludeAwardIds(Long strategyId);
-
-    protected abstract String drawAlgorithm(Long strategyId, IDrawAlgorithm drawAlgorithm, List<String> excludeAwardIds);
-
+    /**
+     * 包装抽奖结果
+     *
+     * @param uId        用户ID
+     * @param strategyId 策略ID
+     * @param awardId    奖品ID，null 情况：并发抽奖情况下，库存临界值1 -> 0，会有用户中奖结果为 null
+     * @return 中奖结果
+     */
     private DrawResult buildDrawResult(String uId, Long strategyId, String awardId) {
         if (null == awardId) {
             logger.info("执行策略抽奖完成【未中奖】，用户：{} 策略ID：{}", uId, strategyId);
@@ -87,7 +109,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         }
 
         Award award = super.queryAwardInfoByAwardId(awardId);
-        DrawAwardInfo drawAwardInfo = new DrawAwardInfo(award.getAwardId(), award.getAwardName());
+        DrawAwardInfo drawAwardInfo = new DrawAwardInfo(award.getAwardId(), award.getAwardType(), award.getAwardName(), award.getAwardContent());
         logger.info("执行策略抽奖完成【已中奖】，用户：{} 策略ID：{} 奖品ID：{} 奖品名称：{}", uId, strategyId, awardId, award.getAwardName());
 
         return new DrawResult(uId, strategyId, Constants.DrawState.SUCCESS.getCode(), drawAwardInfo);

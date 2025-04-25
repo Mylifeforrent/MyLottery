@@ -6,7 +6,7 @@ spring:
     # for root pwd is rootroot
     username: lottery
     password: lottery
-    url: jdbc:mysql://localhost:3306/lottery?useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/lottery?useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
   flyway:
     schemas: lottery
@@ -24,6 +24,8 @@ dubbo:
   application:
     name: Lottery
     version: 1.0.0
+    parameters:
+      unicast: false
   registry:
     address: N/A #multicast://224.5.6.7:1234
   protocol:

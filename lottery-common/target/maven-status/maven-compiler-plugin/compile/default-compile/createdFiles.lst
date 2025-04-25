@@ -1,5 +1,7 @@
 cn/itedus/lottery/common/Constants$DrawState.class
+cn/itedus/lottery/common/Constants$AwardType.class
 cn/itedus/lottery/common/Constants.class
+cn/itedus/lottery/common/Constants$AwardState.class
 cn/itedus/lottery/common/Constants$ResponseCode.class
 cn/itedus/lottery/common/Result.class
 cn/itedus/lottery/common/Constants$StrategyMode.class

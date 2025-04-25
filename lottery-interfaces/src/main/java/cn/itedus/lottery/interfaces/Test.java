@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Test {
 
-    @Bean
-    CommandLineRunner runFlyway(Flyway flyway) {
-        return args -> flyway.migrate();
-    }
+//    @Bean
+//    CommandLineRunner runFlyway(Flyway flyway) {
+//        return args -> flyway.migrate();
+//    }
 }
