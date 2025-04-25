@@ -1,0 +1,9 @@
+/Users/macbookair/IdeaProjects/MyLottery/lottery-infrastructure/src/main/java/cn/itedus/lottery/infrastructure/dao/IActivityDao.java
+/Users/macbookair/IdeaProjects/MyLottery/lottery-infrastructure/src/main/java/package-info.java
+/Users/macbookair/IdeaProjects/MyLottery/lottery-infrastructure/src/main/java/cn/itedus/lottery/infrastructure/po/Activity.java
+/Users/macbookair/IdeaProjects/MyLottery/lottery-infrastructure/src/main/java/cn/itedus/lottery/infrastructure/po/Award.java
+/Users/macbookair/IdeaProjects/MyLottery/lottery-infrastructure/src/main/java/cn/itedus/lottery/infrastructure/po/Strategy.java
+/Users/macbookair/IdeaProjects/MyLottery/lottery-infrastructure/src/main/java/cn/itedus/lottery/infrastructure/dao/IAwardDao.java
+/Users/macbookair/IdeaProjects/MyLottery/lottery-infrastructure/src/main/java/cn/itedus/lottery/infrastructure/dao/IStrategyDetailDao.java
+/Users/macbookair/IdeaProjects/MyLottery/lottery-infrastructure/src/main/java/cn/itedus/lottery/infrastructure/dao/IStrategyDao.java
+/Users/macbookair/IdeaProjects/MyLottery/lottery-infrastructure/src/main/java/cn/itedus/lottery/infrastructure/po/StrategyDetail.java

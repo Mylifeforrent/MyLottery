@@ -1,31 +1,40 @@
 package cn.itedus.lottery.domain.strategy.service.draw;
 
 import cn.itedus.lottery.domain.strategy.model.aggregates.StrategyRich;
+import cn.itedus.lottery.domain.strategy.model.vo.AwardBriefVO;
 import cn.itedus.lottery.domain.strategy.repository.IStrategyRepository;
-import cn.itedus.lottery.infrastructure.po.Award;
 
 import javax.annotation.Resource;
 
 /**
- * 你的理解不完全正确。`@Resource` 注解虽然是 Java 的标准注解（来自 `javax.annotation`），但它的依赖注入功能仍然依赖于 Spring 容器的管理。如果一个类没有被 Spring 容器管理（例如没有被标注为 `@Component`、`@Service` 等，或者没有通过配置显式注册为 Bean），那么 `@Resource` 注解不会生效，属性字段也无法被注入。
- *
- * ### 原因
- * - `@Resource` 的注入功能需要 Spring 容器来解析和管理依赖。
- * - 如果类本身未被 Spring 容器管理，Spring 无法识别该类，也无法为其注入依赖。
- *
- * ### 总结
- * 当前 `DrawStrategySupport` 类没有被 Spring 容器管理，因此 `@Resource` 注解不会生效，`strategyRepository` 属性无法被注入。要使注入生效，需要将该类注册为 Spring Bean。
+ * @description: 抽奖策略数据支撑，一些通用的数据服务
+ * @author：小傅哥，微信：fustack
+ * @date: 2021/8/28
+ * @Copyright： 公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
  */
-public class DrawStrategySupport  extends DrawConfig{
+public class DrawStrategySupport extends DrawConfig{
 
     @Resource
     protected IStrategyRepository strategyRepository;
 
-    protected StrategyRich queryStrategyRich(Long strategyId) {
+    /**
+     * 查询策略配置信息
+     *
+     * @param strategyId 策略ID
+     * @return 策略配置信息
+     */
+    protected StrategyRich queryStrategyRich(Long strategyId){
         return strategyRepository.queryStrategyRich(strategyId);
     }
 
-    protected Award queryAwardInfoByAwardId(String awardId) {
+    /**
+     * 查询奖品详情信息
+     *
+     * @param awardId 奖品ID
+     * @return 中奖详情
+     */
+    protected AwardBriefVO queryAwardInfoByAwardId(String awardId){
         return strategyRepository.queryAwardInfo(awardId);
     }
+
 }

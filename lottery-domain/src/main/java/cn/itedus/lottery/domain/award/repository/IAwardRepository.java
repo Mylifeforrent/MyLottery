@@ -1,6 +1,5 @@
 package cn.itedus.lottery.domain.award.repository;
 
-import cn.itedus.lottery.infrastructure.po.Award;
 
 /**
  * @description: 奖品表仓储服务接口

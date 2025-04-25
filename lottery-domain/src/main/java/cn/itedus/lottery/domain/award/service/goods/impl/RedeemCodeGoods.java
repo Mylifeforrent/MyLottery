@@ -29,9 +29,4 @@ public class RedeemCodeGoods extends DistributionBase implements IDistributionGo
         return new DistributionRes(req.getuId(), Constants.AwardState.SUCCESS.getCode(), Constants.AwardState.SUCCESS.getInfo());
     }
 
-    @Override
-    public Integer getDistributionGoodsName() {
-        return Constants.AwardType.RedeemCodeGoods.getCode();
-    }
-
 }

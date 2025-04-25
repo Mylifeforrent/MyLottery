@@ -1,0 +1,4 @@
+cn/itedus/lottery/rpc/res/ActivityRes.class
+cn/itedus/lottery/rpc/req/ActivityReq.class
+cn/itedus/lottery/rpc/IActivityBooth.class
+cn/itedus/lottery/rpc/dto/ActivityDto.class
