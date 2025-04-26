@@ -1,21 +1,21 @@
 package cn.itedus.lottery.infrastructure.po;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
- * 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
- * 公众号：bugstack虫洞栈
- *
- * @author 小傅哥，微信：fustack
- * <p>
- * 策略明细
+ * @description: 策略明细
+ * @author: 小傅哥，微信：fustack
+ * @date: 2021/9/25
+ * @github: https://github.com/fuzhengwei
+ * @Copyright: 公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
  */
 public class StrategyDetail {
 
     /**
      * 自增ID
      */
-    private String id;
+    private Long id;
 
     /**
      * 策略ID
@@ -50,18 +50,18 @@ public class StrategyDetail {
     /**
      * 创建时间
      */
-    private String createTime;
+    private Date createTime;
 
     /**
      * 修改时间
      */
-    private String updateTime;
+    private Date updateTime;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -113,19 +113,19 @@ public class StrategyDetail {
         this.awardRate = awardRate;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public String getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(String updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 }
