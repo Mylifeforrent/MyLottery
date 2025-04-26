@@ -28,6 +28,34 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.1.4</version>
         </dependency>
+        <!--下是这三个 Spring Boot 相关依赖的作用：
+
+        1. **spring-boot-configuration-processor**
+        - 作用：用于在编译时生成配置元数据文件 (`META-INF/spring-configuration-metadata.json`)，帮助开发者在 IDE 中获得配置属性的自动补全和文档提示。
+        - 使用场景：当你定义自定义的 `@ConfigurationProperties` 类时，添加此依赖可以让 IDE 提供更好的开发体验。
+
+        2. **spring-boot-autoconfigure**
+        - 作用：提供 Spring Boot 的自动配置功能，包含大量的自动配置类（`@Configuration`），根据类路径中的依赖和配置文件中的属性自动配置 Spring 应用程序。
+        - 使用场景：这是 Spring Boot 自动配置的核心模块，通常由 `spring-boot-starter` 间接引入，不需要手动添加。
+
+        3. **spring-boot-starter-aop**
+        - 作用：提供面向切面编程（AOP）的支持，包含 Spring AOP 和 AspectJ 的依赖。
+        - 使用场景：当需要使用 AOP 功能（如日志记录、事务管理、性能监控等）时，可以添加此依赖。
+
+        这些依赖在 Spring Boot 项目中各司其职，协同工作以简化开发流程和增强功能。-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
