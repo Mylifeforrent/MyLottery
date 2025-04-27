@@ -1,0 +1,3 @@
+cn/itedus/lottery/domain/award/repository/IOrderRepository.class
+cn/itedus/lottery/domain/activity/model/vo/UserTakeActivityVO.class
+cn/itedus/lottery/domain/activity/model/vo/DrawOrderVO.class

@@ -2,13 +2,13 @@ cn/itedus/lottery/infrastructure/po/StrategyDetail.class
 cn/itedus/lottery/infrastructure/dao/IStrategyDetailDao.class
 cn/itedus/lottery/infrastructure/dao/IUserStrategyExportDao.class
 cn/itedus/lottery/infrastructure/po/Activity.class
+cn/itedus/lottery/infrastructure/repository/OrderRepository.class
 cn/itedus/lottery/infrastructure/dao/IUserTakeActivityDao.class
 cn/itedus/lottery/infrastructure/dao/IAwardDao.class
 cn/itedus/lottery/infrastructure/dao/IStrategyDao.class
 cn/itedus/lottery/infrastructure/po/UserStrategyExport.class
 cn/itedus/lottery/infrastructure/po/Strategy.class
 cn/itedus/lottery/infrastructure/repository/ActivityRepository.class
-cn/itedus/lottery/infrastructure/repository/AwardRepository.class
 cn/itedus/lottery/infrastructure/repository/StrategyRepository.class
 cn/itedus/lottery/infrastructure/po/UserTakeActivity.class
 cn/itedus/lottery/infrastructure/dao/IActivityDao.class

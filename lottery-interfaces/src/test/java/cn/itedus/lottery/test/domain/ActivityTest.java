@@ -67,6 +67,7 @@ public class ActivityTest {
         activity.setEndDateTime(new Date());
         activity.setStockCount(100);
         activity.setTakeCount(10);
+        activity.setStrategyId(10001L);
         activity.setState(Constants.ActivityState.EDIT.getCode());
         activity.setCreator("xiaofuge");
 
