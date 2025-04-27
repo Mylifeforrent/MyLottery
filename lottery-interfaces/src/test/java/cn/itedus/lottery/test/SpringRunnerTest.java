@@ -7,9 +7,7 @@ import cn.itedus.lottery.domain.award.service.factory.DistributionGoodsFactory;
 import cn.itedus.lottery.domain.award.service.goods.IDistributionGoods;
 import cn.itedus.lottery.domain.strategy.model.req.DrawReq;
 import cn.itedus.lottery.domain.strategy.model.res.DrawResult;
-import cn.itedus.lottery.domain.strategy.model.vo.AwardRateInfo;
-import cn.itedus.lottery.domain.strategy.model.vo.DrawAwardInfo;
-import cn.itedus.lottery.domain.strategy.service.algorithm.IDrawAlgorithm;
+import cn.itedus.lottery.domain.strategy.model.vo.DrawAwardVO;
 import cn.itedus.lottery.domain.strategy.service.draw.IDrawExec;
 import cn.itedus.lottery.infrastructure.dao.IActivityDao;
 import cn.itedus.lottery.infrastructure.po.Activity;
@@ -19,14 +17,10 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.json.JsonbTester;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @description: SpringBoot 单元测试
@@ -72,7 +66,7 @@ public class SpringRunnerTest {
         }
 
         // 封装发奖参数，orderId：2109313442431 为模拟ID，需要在用户参与领奖活动时生成
-        DrawAwardInfo drawAwardInfo = drawResult.getDrawAwardInfo();
+        DrawAwardVO drawAwardInfo = drawResult.getDrawAwardInfo();
         GoodsReq goodsReq = new GoodsReq(drawResult.getuId(), "2109313442431", drawAwardInfo.getAwardId(), drawAwardInfo.getAwardName(), drawAwardInfo.getAwardContent());
 
         // 根据 awardType 从抽奖工厂中获取对应的发奖服务

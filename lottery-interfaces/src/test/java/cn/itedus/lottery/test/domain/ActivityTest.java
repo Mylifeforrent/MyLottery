@@ -52,7 +52,7 @@ public class ActivityTest {
     private ActivityConfigRich activityConfigRich;
 
     /**
-     * TODO：后面编写ID生成策略
+     * 实际业务使用 Map<Constants.Ids, IIdGenerator> ID生成策略
      */
     private Long activityId = 120981321L;
 

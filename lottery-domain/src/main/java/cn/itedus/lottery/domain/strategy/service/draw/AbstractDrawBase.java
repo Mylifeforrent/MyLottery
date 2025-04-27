@@ -77,9 +77,9 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         }
 
         // 解析并初始化中奖概率数据到散列表
-        List<AwardRateInfo> awardRateInfoList = new ArrayList<>(strategyDetailList.size());
+        List<AwardRateVO> awardRateInfoList = new ArrayList<>(strategyDetailList.size());
         for (StrategyDetailBriefVO strategyDetail : strategyDetailList) {
-            awardRateInfoList.add(new AwardRateInfo(strategyDetail.getAwardId(), strategyDetail.getAwardRate()));
+            awardRateInfoList.add(new AwardRateVO(strategyDetail.getAwardId(), strategyDetail.getAwardRate()));
         }
 
         drawAlgorithm.initRateTuple(strategyId, strategyMode, awardRateInfoList);
@@ -101,7 +101,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         }
 
         AwardBriefVO award = super.queryAwardInfoByAwardId(awardId);
-        DrawAwardInfo drawAwardInfo = new DrawAwardInfo(award.getAwardId(), award.getAwardType(), award.getAwardName(), award.getAwardContent());
+        DrawAwardVO drawAwardInfo = new DrawAwardVO(award.getAwardId(), award.getAwardType(), award.getAwardName(), award.getAwardContent());
         drawAwardInfo.setStrategyMode(strategy.getStrategyMode());
         drawAwardInfo.setGrantType(strategy.getGrantType());
         drawAwardInfo.setGrantDate(strategy.getGrantDate());

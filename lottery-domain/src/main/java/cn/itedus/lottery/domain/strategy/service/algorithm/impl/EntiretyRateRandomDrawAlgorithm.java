@@ -1,6 +1,6 @@
 package cn.itedus.lottery.domain.strategy.service.algorithm.impl;
 
-import cn.itedus.lottery.domain.strategy.model.vo.AwardRateInfo;
+import cn.itedus.lottery.domain.strategy.model.vo.AwardRateVO;
 import cn.itedus.lottery.domain.strategy.service.algorithm.BaseAlgorithm;
 import org.springframework.stereotype.Component;
 
@@ -23,9 +23,9 @@ public class EntiretyRateRandomDrawAlgorithm extends BaseAlgorithm {
         BigDecimal differenceDenominator = BigDecimal.ZERO;
 
         // 排除掉不在抽奖范围的奖品ID集合
-        List<AwardRateInfo> differenceAwardRateList = new ArrayList<>();
-        List<AwardRateInfo> awardRateIntervalValList = awardRateInfoMap.get(strategyId);
-        for (AwardRateInfo awardRateInfo : awardRateIntervalValList) {
+        List<AwardRateVO> differenceAwardRateList = new ArrayList<>();
+        List<AwardRateVO> awardRateIntervalValList = awardRateInfoMap.get(strategyId);
+        for (AwardRateVO awardRateInfo : awardRateIntervalValList) {
             String awardId = awardRateInfo.getAwardId();
             if (excludeAwardIds.contains(awardId)) {
                 continue;
@@ -50,7 +50,7 @@ public class EntiretyRateRandomDrawAlgorithm extends BaseAlgorithm {
         // 循环获取奖品
         String awardId = null;
         int cursorVal = 0;
-        for (AwardRateInfo awardRateInfo : differenceAwardRateList) {
+        for (AwardRateVO awardRateInfo : differenceAwardRateList) {
             int rateVal = awardRateInfo.getAwardRate().divide(differenceDenominator, 2, BigDecimal.ROUND_UP).multiply(new BigDecimal(100)).intValue();
             if (randomVal <= (cursorVal + rateVal)) {
                 awardId = awardRateInfo.getAwardId();

@@ -13,6 +13,7 @@ import cn.itedus.lottery.infrastructure.po.Strategy;
 import cn.itedus.lottery.infrastructure.po.StrategyDetail;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import java.util.List;
  * @date: 2021/8/28
  * @Copyright：公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
  */
-@Component
+@Repository
 public class StrategyRepository implements IStrategyRepository {
 
     @Resource
