@@ -9,7 +9,6 @@ import cn.itedus.lottery.domain.activity.model.vo.DrawOrderVO;
 import cn.itedus.lottery.domain.activity.model.vo.UserTakeActivityVO;
 import cn.itedus.lottery.domain.activity.repository.IUserTakeActivityRepository;
 import cn.itedus.lottery.domain.activity.service.partake.BaseActivityPartake;
-import cn.itedus.lottery.domain.support.ids.IIdGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;
@@ -17,7 +16,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.annotation.Resource;
-import java.util.Map;
 
 /**
  * @description: 活动参与功能实现
@@ -139,6 +137,11 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
             dbRouter.clear();
         }
 
+    }
+
+    @Override
+    public void updateInvoiceMqState(String uId, Long orderId, Integer mqState) {
+        userTakeActivityRepository.updateInvoiceMqState(uId, orderId, mqState);
     }
 
 }
