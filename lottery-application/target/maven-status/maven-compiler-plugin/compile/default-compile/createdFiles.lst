@@ -1,8 +1,10 @@
 cn/itedus/lottery/application/process/impl/ActivityProcessImpl$1.class
 cn/itedus/lottery/application/process/IActivityProcess.class
+cn/itedus/lottery/application/worker/LotteryXxlJob.class
 cn/itedus/lottery/application/mq/producer/KafkaProducer.class
 cn/itedus/lottery/application/process/impl/ActivityProcessImpl.class
 cn/itedus/lottery/application/process/res/DrawProcessResult.class
+cn/itedus/lottery/application/worker/LotteryXxlJobConfig.class
 cn/itedus/lottery/application/mq/consumer/LotteryInvoiceListener.class
 cn/itedus/lottery/application/process/res/RuleQuantificationCrowdResult.class
 cn/itedus/lottery/application/process/req/DrawProcessReq.class

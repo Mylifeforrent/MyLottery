@@ -1,6 +1,24 @@
 server:
   port: 8080
 
+# xxl-job
+# 官网：https://github.com/xuxueli/xxl-job/
+# 地址：http://localhost:7397/xxl-job-admin 【需要先启动 xxl-job】
+# 账号：admin
+# 密码：123456
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:7397/xxl-job-admin
+    executor:
+      address:
+      appname: lottery-job
+      ip:
+      port: 9998
+      logpath: /Users/fuzhengwei/itstack/data/applogs/xxl-job/jobhandler
+      logretentiondays: 50
+    accessToken:
+
 # 多数据源路由配置
 # mysql 5.x driver-class-name: com.mysql.jdbc.Driver    mysql-connector-java 5.1.34
 # mysql 8.x driver-class-name: com.mysql.cj.jdbc.Driver mysql-connector-java 8.0.22
@@ -31,6 +49,9 @@ mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   config-location:  classpath:/mybatis/config/mybatis-config.xml
 
+# Spring kafka 配置
+# 启动zk：bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+# 启动kafka：bin/kafka-server-start.sh -daemon config/server.properties
 spring:
   kafka:
     bootstrap-servers: localhost:9092
