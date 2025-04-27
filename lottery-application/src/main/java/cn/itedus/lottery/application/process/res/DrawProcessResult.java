@@ -12,22 +12,23 @@ import cn.itedus.lottery.domain.strategy.model.vo.DrawAwardVO;
  */
 public class DrawProcessResult extends Result {
 
-    private DrawAwardVO drawAwardInfo;
+    private DrawAwardVO drawAwardVO;
 
     public DrawProcessResult(String code, String info) {
         super(code, info);
     }
 
-    public DrawProcessResult(String code, String info, DrawAwardVO drawAwardInfo) {
+    public DrawProcessResult(String code, String info, DrawAwardVO drawAwardVO) {
         super(code, info);
-        this.drawAwardInfo = drawAwardInfo;
+        this.drawAwardVO = drawAwardVO;
     }
 
-    public DrawAwardVO getDrawAwardInfo() {
-        return drawAwardInfo;
+    public DrawAwardVO getDrawAwardVO() {
+        return drawAwardVO;
     }
 
-    public void setDrawAwardInfo(DrawAwardVO drawAwardInfo) {
-        this.drawAwardInfo = drawAwardInfo;
+    public void setDrawAwardVO(DrawAwardVO drawAwardVO) {
+        this.drawAwardVO = drawAwardVO;
     }
+
 }

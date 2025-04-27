@@ -1,3 +1,6 @@
 cn/itedus/lottery/LotteryApplication.class
+cn/itedus/lottery/interfaces/assembler/AwardMappingImpl.class
+cn/itedus/lottery/interfaces/assembler/AwardMapping.class
+cn/itedus/lottery/interfaces/assembler/IMapping.class
 cn/itedus/lottery/interfaces/Test.class
-cn/itedus/lottery/interfaces/ActivityBooth.class
+cn/itedus/lottery/interfaces/facade/LotteryActivityBooth.class

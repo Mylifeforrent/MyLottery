@@ -2,8 +2,8 @@ package cn.itedus.lottery.domain.rule.service.engine;
 
 import cn.itedus.lottery.common.Constants;
 import cn.itedus.lottery.domain.rule.model.aggregates.TreeRuleRich;
-import cn.itedus.lottery.domain.rule.model.req.DecisionMatterReq;
 import cn.itedus.lottery.domain.rule.model.res.EngineResult;
+import cn.itedus.lottery.domain.rule.model.req.DecisionMatterReq;
 import cn.itedus.lottery.domain.rule.model.vo.TreeNodeVO;
 import cn.itedus.lottery.domain.rule.model.vo.TreeRootVO;
 import cn.itedus.lottery.domain.rule.service.logic.LogicFilter;
@@ -19,7 +19,7 @@ import java.util.Map;
  * @github: https://github.com/fuzhengwei
  * @Copyright: 公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
  */
-public abstract class EngineBase extends EngineConfig implements EngineFilter {
+public class EngineBase extends EngineConfig implements EngineFilter {
 
     private Logger logger = LoggerFactory.getLogger(EngineBase.class);
 

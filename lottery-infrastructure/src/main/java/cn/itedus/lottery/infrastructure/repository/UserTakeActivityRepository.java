@@ -36,7 +36,7 @@ public class UserTakeActivityRepository implements IUserTakeActivityRepository {
     private IUserStrategyExportDao userStrategyExportDao;
 
     @Override
-    public int subtractionLeftCount(Long activityId, String activityName, Integer takeCount, Integer userTakeLeftCount, String uId, Date partakeDate) {
+    public int subtractionLeftCount(Long activityId, String activityName, Integer takeCount, Integer userTakeLeftCount, String uId) {
         if (null == userTakeLeftCount) {
             UserTakeActivityCount userTakeActivityCount = new UserTakeActivityCount();
             userTakeActivityCount.setuId(uId);
@@ -98,7 +98,7 @@ public class UserTakeActivityRepository implements IUserTakeActivityRepository {
         userStrategyExport.setAwardType(drawOrder.getAwardType());
         userStrategyExport.setAwardName(drawOrder.getAwardName());
         userStrategyExport.setAwardContent(drawOrder.getAwardContent());
-        userStrategyExport.setUuid(String.valueOf(drawOrder.getOrderId()));
+        userStrategyExport.setUuid(String.valueOf(drawOrder.getTakeId()));
 
         userStrategyExportDao.insert(userStrategyExport);
     }
