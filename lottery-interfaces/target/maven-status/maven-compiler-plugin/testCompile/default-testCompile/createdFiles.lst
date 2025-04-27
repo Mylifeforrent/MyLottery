@@ -2,5 +2,6 @@ cn/itedus/lottery/test/dao/UserTakeActivityDaoTest.class
 cn/itedus/lottery/test/dao/ActivityDaoTest.class
 cn/itedus/lottery/test/domain/RuleTest.class
 cn/itedus/lottery/test/dao/UserStrategyExportDaoTest.class
+cn/itedus/lottery/test/application/KafkaProducerTest.class
 cn/itedus/lottery/test/domain/RuleTest$1.class
 cn/itedus/lottery/test/application/ActivityProcessTest.class

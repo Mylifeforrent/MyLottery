@@ -129,6 +129,12 @@
             <artifactId>mapstruct-processor</artifactId>
         </dependency>
         <!-- MapStruct end -->
+
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
