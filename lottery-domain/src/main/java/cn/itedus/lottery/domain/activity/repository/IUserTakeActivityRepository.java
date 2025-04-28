@@ -2,9 +2,11 @@ package cn.itedus.lottery.domain.activity.repository;
 
 import cn.bugstack.middleware.db.router.annotation.DBRouter;
 import cn.itedus.lottery.domain.activity.model.vo.DrawOrderVO;
+import cn.itedus.lottery.domain.activity.model.vo.InvoiceVO;
 import cn.itedus.lottery.domain.activity.model.vo.UserTakeActivityVO;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @description: 用户参与活动仓储接口
@@ -75,5 +77,12 @@ public interface IUserTakeActivityRepository {
      * @param mqState MQ 发送状态
      */
     void updateInvoiceMqState(String uId, Long orderId, Integer mqState);
+
+    /**
+     * 扫描发货单 MQ 状态，把未发送 MQ 的单子扫描出来，做补偿
+     *
+     * @return 发货单
+     */
+    List<InvoiceVO> scanInvoiceMqState();
 
 }
