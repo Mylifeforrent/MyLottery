@@ -44,6 +44,15 @@
             <groupId>cn.bugstack.middleware</groupId>
             <artifactId>db-router-spring-boot-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.bugstack.middleware</groupId>
+            <artifactId>db-router-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
            <!-- 在 Maven 中，`<scope>compile</scope>` 的作用是指定依赖的作用域。以下是使用 `compile` 的原因和含义：
 
             1. **默认作用域**：`compile` 是 Maven 的默认作用域。如果不显式指定 `<scope>`，Maven 会将依赖的作用域视为 `compile`。

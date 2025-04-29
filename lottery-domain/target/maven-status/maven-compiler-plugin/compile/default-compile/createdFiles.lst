@@ -1,4 +1,5 @@
 cn/itedus/lottery/domain/rule/model/vo/TreeRootVO.class
+cn/itedus/lottery/domain/activity/model/res/StockResult.class
 cn/itedus/lottery/domain/rule/service/engine/EngineBase.class
 cn/itedus/lottery/domain/rule/service/engine/impl/RuleEngineHandle.class
 cn/itedus/lottery/domain/rule/model/vo/TreeNodeLineVO.class
@@ -6,7 +7,9 @@ cn/itedus/lottery/domain/rule/service/logic/BaseLogic.class
 cn/itedus/lottery/domain/rule/model/aggregates/TreeRuleRich.class
 cn/itedus/lottery/domain/award/repository/IOrderRepository.class
 cn/itedus/lottery/domain/activity/model/vo/UserTakeActivityVO.class
+cn/itedus/lottery/domain/activity/model/vo/ActivityPartakeRecordVO.class
 cn/itedus/lottery/domain/rule/model/vo/TreeNodeVO.class
+cn/itedus/lottery/domain/support/redis/RedisConfig.class
 cn/itedus/lottery/domain/rule/service/engine/EngineConfig.class
 cn/itedus/lottery/domain/rule/service/logic/LogicFilter.class
 cn/itedus/lottery/domain/rule/service/logic/impl/UserGenderFilter.class

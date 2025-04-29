@@ -1,3 +1,4 @@
+cn/itedus/lottery/common/Constants$RedisKey.class
 cn/itedus/lottery/common/Constants$Global.class
 cn/itedus/lottery/common/Constants$MQState.class
 cn/itedus/lottery/common/Constants$GrantState.class

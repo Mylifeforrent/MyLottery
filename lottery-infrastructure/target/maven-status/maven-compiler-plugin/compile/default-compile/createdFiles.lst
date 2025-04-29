@@ -1,3 +1,4 @@
+cn/itedus/lottery/infrastructure/util/RedisUtil.class
 cn/itedus/lottery/infrastructure/dao/RuleTreeNodeLineDao.class
 cn/itedus/lottery/infrastructure/po/RuleTree.class
 cn/itedus/lottery/infrastructure/dao/IStrategyDao.class
